@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Marks Filler",
+  "version": "2.1",
+  "description": "Safely fill student marks from an Excel workbook into the current school marks page.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Marks Filler"
+  },
+  "host_permissions": [
+    "https://docs.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

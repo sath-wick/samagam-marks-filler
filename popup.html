@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Marks Filler</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <h1>Marks Filler</h1>
+          <span id="sheetInfo" class="file-status">No workbook</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel source-panel">
+      <div class="source-tabs">
+        <button class="tab active" id="localTab">Excel</button>
+        <button class="tab" id="googleTab">Google Sheets</button>
+      </div>
+
+      <div id="localSource">
+        <label class="file-drop" for="fileInput">
+          <span class="upload-mark">↑</span>
+          <span id="fileLabel">Choose Excel file</span>
+          <input id="fileInput" type="file" accept=".xlsx,.xlsm">
+        </label>
+      </div>
+
+      <div id="googleSource" class="hidden google-source">
+        <input id="googleUrl" class="text-input" placeholder="Paste Google Sheets URL" autocomplete="off">
+        <button id="googleBtn" class="secondary">Load</button>
+        <div id="googleResult" class="result"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="field">
+        <label class="field-label" for="sheetSelect">Sheet</label>
+        <select id="sheetSelect" disabled>
+          <option>Select a workbook first</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label class="field-label" for="examSelect">Marks</label>
+        <select id="examSelect" disabled>
+          <option>Select a sheet first</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="panel verify-panel">
+      <div class="row-head">
+        <label class="field-label">Verify</label>
+        <span id="scanStatus" class="status neutral">Not scanned</span>
+      </div>
+      <button id="scanBtn" class="secondary" disabled>Scan students</button>
+      <div id="verification" class="verification hidden"></div>
+    </section>
+
+    <section class="action-panel">
+      <div class="summary" id="summary">Select a workbook to begin.</div>
+      <button id="fillBtn" class="primary" disabled>Fill marks</button>
+      <div id="result" class="result"></div>
+    </section>
+  </main>
+
+  <script src="xlsx-parser.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
